@@ -10,7 +10,7 @@
 **A modern, full-featured Second Brain application UI built with React 18, TypeScript, and Vite.**  
 Capture tweets, YouTube videos, articles, documents, and notes — all in one beautiful dark workspace.
 
-[Live Demo](#) · [Backend Repo](../synapseAi) · [Report Bug](#) · [Request Feature](#)
+[🌐 Live Demo](https://synapseai-front.vercel.app) · [Backend Repo](https://github.com/HarshMishra2803/synapseai) · [Frontend Repo](https://github.com/HarshMishra2803/synapseai-front)
 
 </div>
 
