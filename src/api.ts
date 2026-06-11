@@ -35,6 +35,15 @@ export const createContent = (data: { title: string; link?: string; type?: strin
 export const deleteContent = (contentId: string) =>
   api.delete('/api/v1/content', { data: { contentId } });
 
+export const updateContent = (id: string, data: { title: string; note?: string; tags?: string[] }) =>
+  api.put(`/api/v1/content/${id}`, data);
+
+export const pinContent = (id: string) =>
+  api.patch(`/api/v1/content/${id}/pin`);
+
+export const aiSummarize = (data: { title: string; note?: string; link?: string; type?: string }) =>
+  api.post('/api/v1/ai/summarize', data);
+
 // ===== BRAIN SHARE =====
 export const shareBrain = (share: boolean) =>
   api.post('/api/v1/brain/share', { share });

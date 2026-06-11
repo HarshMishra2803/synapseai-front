@@ -13,6 +13,7 @@ export interface Content {
   link?: string;
   type?: ContentType;
   tags?: string[];
+  pinned?: boolean;
   userId: User | string;
   createdAt?: string;
   note?: string;
