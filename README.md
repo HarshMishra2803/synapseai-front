@@ -1,16 +1,14 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white&style=for-the-badge" />
-<img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white&style=for-the-badge" />
-<img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white&style=for-the-badge" />
-<img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge" />
-
 # 🧠 SynapseAI — Frontend
 
-**A modern, full-featured Second Brain application UI built with React 18, TypeScript, and Vite.**  
+**A modern Second Brain application built with React 18, TypeScript, and Vite.**
 Capture tweets, YouTube videos, articles, documents, and notes — all in one beautiful dark workspace.
 
-[🌐 Live Demo](https://synapseai-front.vercel.app) · [Backend Repo](https://github.com/HarshMishra2803/synapseai) · [Frontend Repo](https://github.com/HarshMishra2803/synapseai-front)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-synapseai--front.vercel.app-10b981?style=for-the-badge)](https://synapseai-front.vercel.app)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://typescriptlang.org)
 
 </div>
 
@@ -18,30 +16,33 @@ Capture tweets, YouTube videos, articles, documents, and notes — all in one be
 
 ## ✨ Features
 
-- 🔐 **JWT Authentication** — Secure signup/signin with token-based sessions
-- 📚 **Content Library** — Save links, YouTube videos, tweets, documents, and notes
-- 🔍 **Real-time Search** — Filter content by title, URL, notes, or tags instantly
-- 🏷️ **Tag System** — Organise content with custom tags and filter by them
-- 🌐 **Brain Sharing** — Generate a public read-only link to share your entire brain
-- 📱 **Fully Responsive** — Mobile-first design with a collapsible sidebar
-- 🎨 **Premium Dark UI** — Black + Emerald Green theme with glassmorphism and micro-animations
-- ♿ **Accessible** — Semantic HTML, keyboard navigation, unique element IDs
+| Feature | Description |
+|---------|-------------|
+| 🔐 **Authentication** | JWT-based login & signup with persistent sessions |
+| 📚 **Content Types** | Save YouTube videos, tweets, links, documents, and notes |
+| 🔍 **Search & Filter** | Real-time search + tag-based filtering |
+| ✏️ **Edit Content** | Update title, note, and tags of any saved item |
+| 📌 **Pin / Favourite** | Pin important items to always appear at the top |
+| 📊 **Analytics Dashboard** | Visual bar chart showing content breakdown by type |
+| ✨ **AI Summary** | One-click AI-generated summary using Groq (Llama 3.1) |
+| 🔗 **Share Brain** | Generate a public read-only link to share your brain |
+| 📱 **Responsive Design** | Works on desktop, tablet, and mobile |
+| 🌙 **Dark Theme** | Black + Emerald Green glassmorphism design |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|-----------|
-| **Framework** | [React 18](https://react.dev/) with Hooks |
-| **Language** | [TypeScript 5](https://www.typescriptlang.org/) — strict mode |
-| **Build Tool** | [Vite 8](https://vitejs.dev/) — HMR, instant cold start |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + Custom CSS design system |
-| **Routing** | [React Router v6](https://reactrouter.com/) |
-| **HTTP Client** | [Axios](https://axios-http.com/) with request interceptors |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Fonts** | [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts |
-| **Linting** | ESLint + TypeScript ESLint + React Hooks plugin |
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Framework** | React 18 | UI component library |
+| **Language** | TypeScript 5 | Type safety |
+| **Build Tool** | Vite 8 | Lightning-fast HMR & bundling |
+| **Routing** | React Router v7 | Client-side navigation |
+| **HTTP Client** | Axios | API requests with interceptors |
+| **Styling** | Vanilla CSS + CSS Variables | Design tokens, glassmorphism |
+| **Icons** | Lucide React | Consistent icon library |
+| **Deployment** | Vercel | Zero-config CI/CD |
 
 ---
 
@@ -49,31 +50,36 @@ Capture tweets, YouTube videos, articles, documents, and notes — all in one be
 
 ```
 src/
-├── api.ts                    # Axios client + all API calls
-├── types/index.ts            # Shared TypeScript types (Content, User, etc.)
-├── utils/errors.ts           # Type-safe Axios error extractor
+├── api.ts                    # Axios instance + all API functions
+├── types.ts                  # TypeScript interfaces (Content, User, etc.)
+├── main.tsx                  # React entry point
+├── App.tsx                   # Router setup + auth guards
+├── index.css                 # Global styles, design tokens, components
 │
 ├── context/
-│   └── AuthContext.tsx       # JWT auth state (token, user, login, logout)
+│   └── AuthContext.tsx       # JWT auth state (login, logout, token)
 │
 ├── components/
-│   ├── ui/
-│   │   ├── Button.tsx        # Reusable button (primary/secondary/ghost/danger)
-│   │   ├── Input.tsx         # Labelled input with icon + error state
-│   │   ├── Modal.tsx         # Accessible modal (Escape key, scroll lock)
-│   │   └── Toast.tsx         # Global toast notification system
-│   │
-│   ├── Sidebar.tsx           # Navigation sidebar (desktop always-on, mobile drawer)
-│   ├── Topbar.tsx            # Sticky search bar + action buttons
-│   ├── ContentCard.tsx       # Content card (YouTube embed, tweet link, tags)
-│   ├── AddContentModal.tsx   # Modal form to add new content
-│   └── ShareBrainModal.tsx   # Share brain with public hash link
+│   ├── Sidebar.tsx           # Navigation sidebar with content type links
+│   ├── Topbar.tsx            # Search bar, add button, share button
+│   ├── ContentCard.tsx       # Card with pin/edit/AI summary/delete actions
+│   ├── AddContentModal.tsx   # Modal to save new content
+│   ├── EditContentModal.tsx  # Modal to edit existing content
+│   ├── ShareBrainModal.tsx   # Generate/revoke share link
+│   └── ui/
+│       ├── Button.tsx        # Reusable button (primary/ghost/secondary)
+│       ├── Input.tsx         # Reusable input with label + error
+│       ├── Modal.tsx         # Animated modal wrapper
+│       └── Toast.tsx         # Global toast notification system
 │
-└── pages/
-    ├── LoginPage.tsx         # Split-panel login UI
-    ├── SignupPage.tsx        # Split-panel signup UI
-    ├── DashboardPage.tsx     # Main content grid with filters
-    └── SharedBrainPage.tsx   # Public read-only view of a shared brain
+├── pages/
+│   ├── LoginPage.tsx         # Split-panel login UI
+│   ├── SignupPage.tsx        # Split-panel signup UI
+│   ├── DashboardPage.tsx     # Main app: analytics + content grid
+│   └── SharedBrainPage.tsx   # Public read-only view of shared brain
+│
+└── utils/
+    └── errors.ts             # Type-safe error message extractor
 ```
 
 ---
@@ -81,123 +87,104 @@ src/
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js 18+
-- npm or pnpm
-- Backend running at `http://localhost:3000`
+- npm or yarn
 
-### Installation
+### Local Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/synapseai-frontend.git
-cd synapseai-frontend
+git clone https://github.com/HarshMishra2803/synapseai-front.git
+cd synapseai-front
 
 # Install dependencies
 npm install
 
-# Copy environment variables
+# Create environment file
 cp .env.example .env
-# Edit .env and set VITE_API_URL to your backend URL
+# Edit .env and set VITE_API_URL=http://localhost:3000
 
-# Start the development server
+# Start dev server
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`
+Open [http://localhost:5173](http://localhost:5173)
 
-### Available Scripts
+### Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API base URL | `https://synapseai-backend-ocgv.onrender.com` |
+
+### Build for Production
 
 ```bash
-npm run dev       # Start development server with HMR
-npm run build     # Production build (output: dist/)
-npm run preview   # Preview production build locally
-npm run lint      # Run ESLint across all TypeScript files
+npm run build   # Creates optimized bundle in dist/
+npm run preview # Preview the production build locally
+```
+
+---
+
+## 🎨 Design System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--green` | `#10b981` | Primary accent, buttons, highlights |
+| `--green-dark` | `#059669` | Hover states |
+| `--bg` | `#000000` | App background |
+| `--surface` | `rgba(255,255,255,0.03)` | Card backgrounds |
+| `--border` | `rgba(255,255,255,0.06)` | Card borders |
+| `--text-primary` | `#f1f5f9` | Headings |
+| `--text-secondary` | `#6b7280` | Subtext |
+
+---
+
+## 🔄 Authentication Flow
+
+```
+User enters credentials
+        ↓
+POST /api/v1/signin
+        ↓
+Server returns JWT token
+        ↓
+Token stored in localStorage
+        ↓
+Axios interceptor attaches token to every request header
+        ↓
+Protected routes check AuthContext
+```
+
+---
+
+## 📦 Key Dependencies
+
+```json
+{
+  "react": "^18.x",
+  "react-router-dom": "^7.x",
+  "axios": "^1.x",
+  "lucide-react": "latest",
+  "typescript": "^5.x",
+  "vite": "^8.x"
+}
 ```
 
 ---
 
 ## 🌐 Deployment
 
-### Vercel (Recommended)
+Hosted on **Vercel** with automatic deployments on every `git push` to `main`.
 
-```bash
-npm install -g vercel
-vercel --prod
+**vercel.json** — Handles SPA routing (prevents 404 on direct URL access):
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
 ```
-
-Set the environment variable `VITE_API_URL` to your deployed backend URL in the Vercel dashboard.
-
-### Netlify
-
-```bash
-npm run build
-# Deploy the dist/ folder to Netlify
-```
-
-Add a `_redirects` file in `public/`:
-```
-/*  /index.html  200
-```
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `VITE_API_URL` | Base URL of the backend API | `http://localhost:3000` |
-
----
-
-## 🎨 Design System
-
-The UI is built on a custom CSS design system defined in `src/index.css`:
-
-| Token | Value |
-|-------|-------|
-| Background | `#000000` |
-| Primary Green | `#10b981` (Emerald 500) |
-| Dark Green | `#059669` (Emerald 600) |
-| Light Green | `#34d399` (Emerald 400) |
-| Text Primary | `#f1f5f9` |
-| Text Muted | `#6b7280` |
-| Border | `rgba(255,255,255,0.06)` |
-
----
-
-## 🔒 Auth Flow
-
-```
-User → /login or /signup
-  ↓
-POST /api/v1/signin → receives JWT token
-  ↓
-Token stored in localStorage as 'synapse_token'
-  ↓
-AuthContext provides token to all components
-  ↓
-Axios interceptor attaches token to every request header
-  ↓
-Protected routes check isAuthenticated → redirect to /login if false
-```
-
----
-
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch: `git checkout -b feat/amazing-feature`
-3. Commit your changes: `git commit -m 'feat: add amazing feature'`
-4. Push to the branch: `git push origin feat/amazing-feature`
-5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-<div align="center">
-  Built with ❤️ and lots of ☕ by <a href="https://github.com/HarshMishra2803">Harsh Mishra</a>
-</div>
+MIT © [Harsh Mishra](https://github.com/HarshMishra2803)
