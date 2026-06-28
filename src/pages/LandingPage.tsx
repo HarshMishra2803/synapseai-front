@@ -218,7 +218,7 @@ export function LandingPage() {
         <div style={{ position: 'absolute', left: '5%', top: '18%' }} className="anim-float">
           <NoteCard />
         </div>
-        <div style={{ position: 'absolute', left: '7%', bottom: '18%' }} className="anim-float" style2={{ animationDelay: '1.5s' }}>
+        <div style={{ position: 'absolute', left: '7%', bottom: '18%', animationDelay: '1.5s' }} className="anim-float">
           <ContentTypesCard />
         </div>
 
