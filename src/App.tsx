@@ -4,6 +4,7 @@ import { LoginPage }       from './pages/LoginPage';
 import { SignupPage }      from './pages/SignupPage';
 import { DashboardPage }   from './pages/DashboardPage';
 import { SharedBrainPage } from './pages/SharedBrainPage';
+import { LandingPage }     from './pages/LandingPage';
 import { ToastContainer }  from './components/ui/Toast';
 import type { JSX } from 'react';
 
@@ -22,7 +23,7 @@ function PublicOnly({ children }: { children: JSX.Element }) {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login"  element={<PublicOnly><LoginPage /></PublicOnly>} />
       <Route path="/signup" element={<PublicOnly><SignupPage /></PublicOnly>} />
       <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
